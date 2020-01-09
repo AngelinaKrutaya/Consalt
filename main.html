@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="konsalt">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.js"></script>
+    <link href="bootstrap.css" rel="stylesheet"/>
+    <script>
+        var model = {
+            nav: ['Главная','О нас','Почему мы','Команда','Контакты']
+        }
+        var MainSite = angular.module('konsalt', []);
+        MainSite.controller("main",function($scope){
+            $scope.data=model
+        })
+        MainSite.controller("menu2", function ($scope) {
+            $scope.message = model;
+            $scope.clickHandler = function () {
+                $scope.message = $scope.text
+            }
+        });
+
+    </script>
+</head>
+<body ng-controller="main">
+<nav >
+    <div class="container">
+        <span ng-repeat="option in data.nav">{{option}}</span>
+    </div>
+</nav>
+<header>
+    <input ng-model="text"/>
+    <button ng-click="clickHandler()">Отправить</button>
+</header>
+<article>
+
+</article>
+<footer>
+
+</footer>
+</body>
+</html>
